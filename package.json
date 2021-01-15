@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@slack/client": "^5.0.2",
+    "@slack/webhook": "^6.0.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "errorhandler": "^1.5.1",

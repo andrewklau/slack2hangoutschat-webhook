@@ -4,7 +4,7 @@ import * as url from "url";
 import { Request, Response, NextFunction } from "express";
 import * as superagent from "superagent";
 import { Converter } from "./converter";
-import { IncomingWebhookSendArguments } from "@slack/client";
+import { IncomingWebhookSendArguments } from "@slack/webhook";
 
 export class WebhookResponse {
     public status: number;

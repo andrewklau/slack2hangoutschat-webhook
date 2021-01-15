@@ -23,7 +23,7 @@ export class Converter {
     public static convert(slack: IncomingWebhookSendArguments): Message {
         const message: Message = new Message();
 
-        if (!slack.attachments && slack.text) {
+        if (slack.text) {
             message.setText(slack.text);
         } else if (slack.attachments) {
             message.setPreviewText(slack.text);
@@ -220,4 +220,3 @@ export class Converter {
             );
     }
 }
-

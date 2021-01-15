@@ -15,16 +15,20 @@ app.set("port", process.env.PORT || 3000);
 
 // request
 app.use(compression());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-
 // logger
 app.use((req, res, next) => {
+    // Fix for erpnext
+    req.headers["content-type"] = "application/json";
+
     Object.assign(res.locals, {
         logUrl: url.parse(req.url).pathname
     });
     next();
 });
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 const logger = winston.createLogger({
     transports: [
@@ -76,4 +80,3 @@ app.listen(app.get("port"), () => {
         app.get("env")
     );
 });
-
